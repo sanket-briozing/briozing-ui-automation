@@ -35,6 +35,7 @@ public enum DriverType implements DriverSetup {
                 options.addArguments("--disable-extensions");
                 options.addArguments("--disable-gpu");
                 options.addArguments("--no-sandbox");
+                options.addArguments("--headless");
                 options.merge(capabilities);
                 return new ChromeDriver(service, options);
             } catch (Exception ex) {
