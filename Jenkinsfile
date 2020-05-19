@@ -23,8 +23,9 @@ pipeline {
       }
       stage('Test') {
          steps {
-           echo "Selected test group is ${params.TestGroup}"
-           sh 'mvn clean test -Dgroups="${params.TestGroup}"'
+         def groupId = "${params.TestGroup}"
+           echo groupId
+           sh 'mvn clean test -Dgroups='+groupId
            echo 'Test case passed successfully'
          }
       }
