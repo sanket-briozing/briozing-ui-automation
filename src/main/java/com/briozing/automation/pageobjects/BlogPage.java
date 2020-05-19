@@ -50,7 +50,7 @@ public class BlogPage  {
     @FindBy(xpath = "//div[@class='post-list row']/div[9]//h2")
     private List<WebElement> developersRoleBlog;
 
-    @FindBy(xpath = "//div[@class='sidebar col-sm-4 col-md-3']//inputabc")
+    @FindBy(xpath = "//div[@class='sidebar col-sm-4 col-md-3']//input")
     private WebElement searchBox;
 
     public BlogPage() throws Exception {
