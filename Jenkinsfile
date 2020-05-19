@@ -16,7 +16,7 @@ pipeline {
       }
       stage('Test') {
          steps {
-           sh 'mvn clean test -Dgroups=addEmployee'
+           sh 'mvn clean test -Dgroups=searchBox'
            echo 'Test case passed successfully'
          }
       }
