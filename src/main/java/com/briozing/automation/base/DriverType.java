@@ -19,6 +19,7 @@ public enum DriverType implements DriverSetup {
         public DesiredCapabilities getDesiredCapabilities() {
             final DesiredCapabilities capabilities = DesiredCapabilities.chrome();
             capabilities.acceptInsecureCerts();
+
             return capabilities;
         }
 
@@ -28,6 +29,9 @@ public enum DriverType implements DriverSetup {
                         .usingAnyFreePort()
                         .build();
                 ChromeOptions options = new ChromeOptions();
+                options.addArguments("--disable-extensions");
+                options.addArguments("--disable-gpu");
+                options.addArguments("--no-sandbox");
                 options.merge(capabilities);
                 return new ChromeDriver(service, options);
             } catch (Exception ex) {
