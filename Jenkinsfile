@@ -1,5 +1,12 @@
 pipeline {
    agent any
+   parameters {
+      choice(
+         name: 'TestGroup',
+         choices: ['HomePage', 'BlogPage'],
+         description: 'Select test group to run test cases'
+      )
+   }
    stages {
       stage('Checkout') {
          steps {
@@ -16,7 +23,7 @@ pipeline {
       }
       stage('Test') {
          steps {
-           sh 'mvn clean test -Dgroups=searchBox'
+           sh 'mvn clean test -Dgroups=${params.TestGroup}'
            echo 'Test case passed successfully'
          }
       }
