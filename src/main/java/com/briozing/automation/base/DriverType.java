@@ -29,6 +29,9 @@ public enum DriverType implements DriverSetup {
                         .usingAnyFreePort()
                         .build();
                 ChromeOptions options = new ChromeOptions();
+                capabilities.setCapability("chrome.binary", "<Path to binary>");
+                capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+                options.addArguments("test-type");
                 options.addArguments("--disable-extensions");
                 options.addArguments("--disable-gpu");
                 options.addArguments("--no-sandbox");
