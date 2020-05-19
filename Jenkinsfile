@@ -2,6 +2,7 @@ pipeline {
    agent any
    parameters {
       choice(
+         defaultValue: 'sanity',
          name: 'TestGroup',
          choices: ['HomePage', 'BlogPage'],
          description: 'Select test group to run test cases'
