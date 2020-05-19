@@ -62,7 +62,7 @@
                                 <envName>${executionOn}</envName>
                                 <webdriver.chrome.driver>${project.basedir}/src/test/resources/chromedriver.exe</webdriver.chrome.driver>
                             </systemPropertyVariables>
-                            <testFailureIgnore>true</testFailureIgnore>
+                            <testFailureIgnore>false</testFailureIgnore>
                         </configuration>
                     </plugin>
                 </plugins>
