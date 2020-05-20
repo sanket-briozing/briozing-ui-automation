@@ -60,7 +60,7 @@
                                 <browserVersion>${browserVersion}</browserVersion>
                                 <buildName>${buildName}</buildName>
                                 <envName>${executionOn}</envName>
-                                <webdriver.chrome.driver>${project.basedir}/src/test/resources/chromedriver.exe</webdriver.chrome.driver>
+                                <webdriver.chrome.driver>${project.basedir}/src/test/resources/chromedriver</webdriver.chrome.driver>
                             </systemPropertyVariables>
                             <testFailureIgnore>false</testFailureIgnore>
                         </configuration>
