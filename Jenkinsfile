@@ -17,7 +17,7 @@ pipeline {
       }
       stage('Compile') {
          steps {
-           sh 'sudo -u sanket mvn compile'
+           sh 'mvn clean compile'
            echo 'Compilation done'
          }
       }
