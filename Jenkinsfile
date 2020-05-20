@@ -17,7 +17,7 @@ pipeline {
       }
       stage('Compile') {
          steps {
-           sh 'sudo -u sanket mvn clean compile'
+           sh 'sudo -u sanket mvn compile'
            echo 'Compilation done'
          }
       }
@@ -26,7 +26,7 @@ pipeline {
            echo "Selected test group is ${params.TestGroup}"
            sh 'whoami'
            sh 'pwd'
-           sh "sudo -u sanket mvn clean test -Dgroups=${params.TestGroup}"
+           sh "sudo -u sanket mvn test -Dgroups=${params.TestGroup}"
 //            sh "mvn clean test -Dgroups=${params.TestGroup}"
 //            sh 'mvn clean'
            echo 'Test case passed successfully'
