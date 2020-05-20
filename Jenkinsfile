@@ -24,6 +24,7 @@ pipeline {
       stage('Test') {
          steps {
            echo "Selected test group is ${params.TestGroup}"
+           sh 'pwd'
            sh "sudo -u jenkins mvn clean test -Dgroups=${params.TestGroup}"
            echo 'Test case passed successfully'
          }
