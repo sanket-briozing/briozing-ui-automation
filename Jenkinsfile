@@ -8,13 +8,13 @@ pipeline {
       )
    }
    stages {
-      stage('Checkout') {
-         steps {
-           echo 'briozing UI automation pipeline started'
-           git branch:'master', credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/sanket-briozing/briozing-ui-automation.git'
-           echo 'Checkout Done'
-         }
-      }
+//       stage('Checkout') {
+//          steps {
+//            echo 'briozing UI automation pipeline started'
+//            git branch:'master', credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/sanket-briozing/briozing-ui-automation.git'
+//            echo 'Checkout Done'
+//          }
+//       }
       stage('Compile') {
          steps {
            sh 'mvn clean compile'
