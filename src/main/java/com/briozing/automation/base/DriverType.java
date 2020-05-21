@@ -34,12 +34,20 @@ public enum DriverType implements DriverSetup {
 //                options.addArguments("test-type");
 //                options.addArguments("--disable-extensions");
 //                options.addArguments("--disable-gpu");
-                options.addArguments("--no-sandbox");
-                options.addArguments("--disable-dev-shm-usage");
-                options.addArguments("--remote-debugging-port=9222");
-                options.setBinary("/usr/bin/google-chrome");
-                options.addArguments("--disable-setuid-sandbox");
-                options.addArguments("--headless");
+//                options.addArguments("--no-sandbox");
+//                options.addArguments("--disable-dev-shm-usage");
+//                options.addArguments("--remote-debugging-port=9222");
+//                options.setBinary("/usr/bin/google-chrome");
+//                options.addArguments("--disable-setuid-sandbox");
+//                options.addArguments("--headless");
+                options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
+//                options.addArguments("--headless");
+                options.setExperimentalOption("useAutomationExtension", false);
+                options.addArguments("start-maximized"); // open Browser in maximized mode
+                options.addArguments("disable-infobars"); // disabling infobars
+                options.addArguments("--disable-extensions"); // disabling extensions
+                options.addArguments("--disable-gpu"); // applicable to windows os only
+                options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
                 options.merge(capabilities);
                 return new ChromeDriver(service, options);
             } catch (Exception ex) {
