@@ -39,7 +39,7 @@ public enum DriverType implements DriverSetup {
                 options.addArguments("--remote-debugging-port=9222");
                 options.setBinary("/usr/bin/google-chrome");
                 options.addArguments("--disable-setuid-sandbox");
-//                options.addArguments("--headless");
+                options.addArguments("--headless");
                 options.merge(capabilities);
                 return new ChromeDriver(service, options);
             } catch (Exception ex) {
