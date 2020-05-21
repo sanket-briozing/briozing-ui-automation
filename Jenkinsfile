@@ -7,22 +7,51 @@ node {
 //       )
 //     }
 
-    stages {
+    // stages {
           stage('Compile') {
-             steps {
+            //  steps {
                sh 'mvn clean compile'
                echo 'Compilation done'
-             }
+            //  }
           }
           stage('Test') {
-             steps {
+            //  steps {
 //                echo "Selected test group is ${params.TestGroup}"
                sh "mvn clean test -Dgroups=HomePage"
                echo 'Test case passed successfully'
-             }
+            //  }
           }
-    }
+    // }
 }
+
+
+
+
+// node {
+// //     parameters {
+// //       choice(
+// //          name: 'TestGroup',
+// //          choices: ['sanity','HomePage', 'BlogPage'],
+// //          description: 'Select test group to run test cases'
+// //       )
+// //     }
+//
+//     stages {
+//           stage('Compile') {
+//              steps {
+//                sh 'mvn clean compile'
+//                echo 'Compilation done'
+//              }
+//           }
+//           stage('Test') {
+//              steps {
+// //                echo "Selected test group is ${params.TestGroup}"
+//                sh "mvn clean test -Dgroups=HomePage"
+//                echo 'Test case passed successfully'
+//              }
+//           }
+//     }
+// }
 
 
 // pipeline {
