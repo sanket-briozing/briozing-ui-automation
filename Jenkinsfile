@@ -1,13 +1,47 @@
-pipeline {
-   agent any
-   parameters {
+node {
+    parameters {
       choice(
          name: 'TestGroup',
          choices: ['sanity','HomePage', 'BlogPage'],
          description: 'Select test group to run test cases'
-      )
+    )
    }
-   stages {
+
+    stages {
+//           stage('Checkout') {
+//              steps {
+//                echo 'briozing UI automation pipeline started'
+//                git branch:'master', credentialsId: 'GIT_HUB_CREDENTIALS', url: 'https://github.com/sanket-briozing/briozing-ui-automation.git'
+//                echo 'Checkout Done'
+//              }
+//           }
+          stage('Compile') {
+             steps {
+               sh 'mvn clean compile'
+               echo 'Compilation done'
+             }
+          }
+          stage('Test') {
+             steps {
+               echo "Selected test group is ${params.TestGroup}"
+               sh "mvn clean test -Dgroups=${params.TestGroup}"
+               echo 'Test case passed successfully'
+             }
+          }
+       }
+}
+
+
+// pipeline {
+//    agent any
+//    parameters {
+//       choice(
+//          name: 'TestGroup',
+//          choices: ['sanity','HomePage', 'BlogPage'],
+//          description: 'Select test group to run test cases'
+//       )
+//    }
+//    stages {
 //       stage('Checkout') {
 //          steps {
 //            echo 'briozing UI automation pipeline started'
@@ -15,25 +49,23 @@ pipeline {
 //            echo 'Checkout Done'
 //          }
 //       }
-      stage('Compile') {
-         steps {
-           sh 'mvn clean compile'
-           echo 'Compilation done'
-         }
-      }
-      stage('Test') {
-         steps {
-           echo "Selected test group is ${params.TestGroup}"
-           sh 'whoami'
-           sh 'pwd'
-           sh "mvn test -Dgroups=${params.TestGroup}"
-//            sh "mvn clean test -Dgroups=${params.TestGroup}"
-//            sh 'mvn clean'
-           echo 'Test case passed successfully'
-         }
-      }
-   }
-}
+//       stage('Compile') {
+//          steps {
+//            sh 'mvn clean compile'
+//            echo 'Compilation done'
+//          }
+//       }
+//       stage('Test') {
+//          steps {
+//            echo "Selected test group is ${params.TestGroup}"
+//            sh 'whoami'
+//            sh 'pwd'
+//            sh "mvn test -Dgroups=${params.TestGroup}"
+//            echo 'Test case passed successfully'
+//          }
+//       }
+//    }
+// }
 
 
 
