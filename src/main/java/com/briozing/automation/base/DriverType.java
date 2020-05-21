@@ -35,7 +35,7 @@ public enum DriverType implements DriverSetup {
 //                options.addArguments("--disable-extensions");
 //                options.addArguments("--disable-gpu");
                 options.addArguments("--no-sandbox");
-//                options.addArguments("--disable-dev-shm-usage");
+                options.addArguments("--disable-dev-shm-usage");
 //                options.addArguments("--remote-debugging-port=9222");
 //                options.setBinary("/usr/bin/google-chrome");
                 options.addArguments("--disable-setuid-sandbox");
